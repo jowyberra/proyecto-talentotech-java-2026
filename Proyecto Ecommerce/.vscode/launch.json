@@ -6,7 +6,7 @@
             "name": "Ejecutar Tienda (Main)",
             "request": "launch",
             "mainClass": "com.techlab.tienda.main.Main",
-            "projectName": "crud_tienda"
+            "projectName": "Proyecto Ecommerce"
         }
     ]
 }
