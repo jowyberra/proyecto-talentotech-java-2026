@@ -30,6 +30,7 @@ public class Menu {
             System.out.println("4. Eliminar producto");
             System.out.println("5. Crear un pedido");
             System.out.println("6. Listar pedidos");
+            System.out.println("7. Aplicar Descuentos");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             
@@ -56,6 +57,9 @@ public class Menu {
                     case 6:
                         pedidoService.listarPedidos();
                         break;
+                    case 7: // NUEVO CASO
+                        aplicarDescuentoUI();
+                        break;    
                     case 0:
                         System.out.println("Saliendo del sistema...");
                         break;
@@ -182,4 +186,51 @@ public class Menu {
             System.out.println("Pedido vacío, cancelado.");
         }
     }
+
+    // --- NUEVO MÉTODO PARA EL SUBMENÚ DE DESCUENTOS ---
+    private void aplicarDescuentoUI() {
+        int subOpcion = -1;
+        do {
+            System.out.println("\n--- SUBMENÚ DESCUENTOS ---");
+            System.out.println("1. Descuento Individual");
+            System.out.println("2. Descuento a todos los productos (Global)");
+            System.out.println("0. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+
+            try {
+                subOpcion = Integer.parseInt(scanner.nextLine());
+
+                switch (subOpcion) {
+                    case 1: // Descuento a un solo producto
+                        System.out.print("Ingrese el ID del producto: ");
+                        int id = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Ingrese el porcentaje de descuento (ej. 15): ");
+                        double porcentajeInd = Double.parseDouble(scanner.nextLine());
+                        
+                        // NOTA: Cambia "app." por tu variable de servicio si es distinta.
+                        // En tu captura se ve que usas "App."
+                        App.aplicarDescuentoIndividual(id, porcentajeInd); 
+                        break;
+                        
+                    case 2: // Descuento global a todos los productos
+                        System.out.print("Ingrese el porcentaje de descuento global (ej. 10): ");
+                        double porcentajeGlobal = Double.parseDouble(scanner.nextLine());
+                        
+                        // NOTA: Cambia "app." por tu variable.
+                        App.aplicarDescuentoGlobal(porcentajeGlobal);
+                        break;
+                        
+                    case 0:
+                        System.out.println("Volviendo al menú principal...");
+                        break;
+                        
+                    default:
+                        System.out.println("Opción no válida en el submenú.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Por favor ingrese un número válido.");
+            }
+        } while (subOpcion != 0); // El ciclo se repite hasta que el usuario ingrese 0
+    }
+    
 }
