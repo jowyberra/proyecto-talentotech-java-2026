@@ -1,0 +1,92 @@
+# ==========================================
+# Archivos compilados de Java
+# ==========================================
+*.class
+
+# Directorios de salida de compilación
+/bin/
+/out/
+/target/
+/build/
+
+# ==========================================
+# Archivos de empaquetado
+# ==========================================
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ==========================================
+# Logs y Errores de la Máquina Virtual (JVM)
+# ==========================================
+*.log
+hs_err_pid*
+replay_pid*
+
+# ==========================================
+# Configuración de IDEs (Entornos de Desarrollo)
+# ==========================================
+
+# --- VS Code ---
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+*.code-workspace
+.history/
+
+# --- Eclipse ---
+.metadata/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.classpath
+.project
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ==========================================
+# Archivos generados por el Sistema Operativo
+# ==========================================
+
+# --- Windows ---
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.cab
+*.lnk
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# --- Linux ---
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
