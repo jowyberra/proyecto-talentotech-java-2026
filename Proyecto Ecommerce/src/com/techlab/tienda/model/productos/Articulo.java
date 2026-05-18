@@ -1,9 +1,10 @@
-package com.techlab.tienda.model;
+package com.techlab.tienda.model.productos;
 
 public class Articulo extends Producto {
 
-    public Articulo(int id, String nombre, double precio) {
-        super(id, nombre, precio);
+    // CAMBIO IMPORTANTE: El constructor de Articulo ahora requiere el stock para pasarlo al padre (super)
+    public Articulo(int id, String nombre, double precio, int stock) {
+        super(id, nombre, precio, stock);
     }
 
     @Override
