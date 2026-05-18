@@ -57,7 +57,7 @@ public class Menu {
                     case 6:
                         pedidoService.listarPedidos();
                         break;
-                    case 7: // NUEVO CASO
+                    case 7:
                         aplicarDescuentoUI();
                         break;    
                     case 0:
