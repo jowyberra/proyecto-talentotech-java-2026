@@ -2,8 +2,8 @@ package com.techlab.tienda.model.pedidos;
 
 import com.techlab.tienda.model.productos.Producto;
 
-// NUEVO: Clase intermedia sugerida que relaciona un Producto con la cantidad que se desea comprar
 public class LineaPedido {
+    
     private Producto producto;
     private int cantidad;
 
@@ -12,13 +12,9 @@ public class LineaPedido {
         this.cantidad = cantidad;
     }
 
-    // NUEVO: Calcula el subtotal de esta línea de pedido específica (precio * cantidad)
-    public double getSubtotal() {
-        return producto.getPrecio() * cantidad;
-    }
-
-    public Producto getProducto() { return producto; }
-    public int getCantidad() { return cantidad; }
+    public double getSubtotal() { return producto.getPrecio() * cantidad;} //Calcula el subtotal de esta línea multiplicando el precio del producto por la cantidad
+    public Producto getProducto() { return producto; }// Retorna el producto asociado a esta línea
+    public int getCantidad() { return cantidad; } // Retorna la cantidad de unidades de este producto en esta línea
 
     @Override
     public String toString() {

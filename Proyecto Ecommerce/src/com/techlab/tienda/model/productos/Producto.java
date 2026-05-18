@@ -7,6 +7,7 @@ public abstract class Producto {
     protected int stock; 
 
     public Producto(int id, String nombre, double precio, int stock) {
+
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -25,6 +26,7 @@ public abstract class Producto {
     public int getStock() { return stock; }
     
     public void setStock(int stock) { 
+        
         if(stock >= 0) {
             this.stock = stock; 
         } else {

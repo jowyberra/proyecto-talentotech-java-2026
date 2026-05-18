@@ -5,8 +5,8 @@ import com.techlab.tienda.model.productos.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
-// NUEVO: Clase Pedido que contiene la lista de productos asociados
 public class Pedido {
+
     private int id;
     private List<LineaPedido> lineas;
 
@@ -15,18 +15,17 @@ public class Pedido {
         this.lineas = new ArrayList<>();
     }
 
-    // CAMBIO IMPORTANTE: Lanza la excepción personalizada si no hay suficiente stock
     public void agregarProducto(Producto producto, int cantidad) throws StockInsuficienteException {
+
         if (producto.getStock() < cantidad) {
             throw new StockInsuficienteException("Stock insuficiente para el producto: " + producto.getNombre() + ". Stock actual: " + producto.getStock());
         }
         
-        // Si hay stock, lo agregamos al pedido
         lineas.add(new LineaPedido(producto, cantidad));
     }
 
-    // NUEVO: Calcula el costo total sumando los subtotales de cada línea
     public double calcularTotal() {
+
         double total = 0;
         for (LineaPedido linea : lineas) {
             total += linea.getSubtotal();
@@ -34,8 +33,8 @@ public class Pedido {
         return total;
     }
 
-    // NUEVO: Confirma el pedido y disminuye el stock real de los productos (solo se hace al final)
     public void confirmarPedido() {
+
         for (LineaPedido linea : lineas) {
             Producto p = linea.getProducto();
             int nuevoStock = p.getStock() - linea.getCantidad();
@@ -48,6 +47,7 @@ public class Pedido {
 
     @Override
     public String toString() {
+        
         StringBuilder sb = new StringBuilder();
         sb.append("--- Pedido #").append(id).append(" ---\n");
         for (LineaPedido linea : lineas) {
